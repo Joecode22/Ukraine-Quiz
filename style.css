@@ -40,6 +40,8 @@ h3 {
 
 /* Utilities */
 /* utility class wrapper */
+/* As the screen gets larger than 80rem, the wrapper will be centered */
+/* As the screen gets smaller than 80rem, the wrapper will be full width */
 .container { 
     display: flex; /* flexbox */
     justify-content: center;   /* center horizontally */
