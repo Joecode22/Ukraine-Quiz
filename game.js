@@ -1,12 +1,13 @@
 const question = document.getElementById('question');
 const choices = Array.from(document.getElementsByClassName('choice-text'));
 
-let currentQuestion = {};
+let currentQuestion = {}; //object to hold the current question
 let acceptingAnswers = false; //boolean to check if we are accepting answers
-let score = 0;
-let questionCounter = 0;
-let availableQuestions = [];
+let score = 0; //initialize the score to zero
+let questionCounter = 0; //initialize the question counter to zero
+let availableQuestions = []; //initialize the available questions array
 
+//questions array
 let questions = [
   {
     question: "When did the most recent full scale invasion of Ukraine start?",
@@ -60,6 +61,14 @@ let questions = [
     choice3: "New York",
     choice4: "London",
     answer: 1
+  },
+  {
+    question: "What is the name of the nuclear power plant that was captured by Russian forces on March 4, 2022?",
+    choice1: "Chernobyl",
+    choice2: "South Ukraine Nuclear Power Plant",
+    choice3: "Nedobudovana Odes'ka Nuclear PowerPlant",
+    choice4: "Zaporizhzhya Nuclear Power Plant",
+    answer: 4
   },
 ]
 
