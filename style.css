@@ -51,6 +51,7 @@ h3 {
     height: 100vh; /* 100% of the viewport height */
     max-width: 80rem; /* 80rem = 1280px */
     margin: 0 auto; /* center horizontally */
+    padding: 2.5rem; /* 25px */
 }
 /* any child of the .container class will be 100% of the width of the container */
 /* this ensures that the content remains centered */ 

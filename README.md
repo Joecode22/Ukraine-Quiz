@@ -40,7 +40,12 @@ Follow this link to view: <https://joecode22.github.io/Code-Quiz/>
 
 ## Credits
 
-The README for this project incorporates text from the project challenge assignment README from class.
+- The README for this project incorporates text from the project challenge assignment README from class.
+- The quiz questions come from material on wikipedia about the Russin war in Ukraine:
+-- "Battle of Mykolaiv.” Wikipedia, , last updated 15 March 2023, <https://en.wikipedia.org/w/index.php?title=Battle_of_Mykolaiv&action=history>
+-- "Battle of Kherson.” Wikipedia, , last updated 27 March 2023, <https://en.wikipedia.org/w/index.php?title=Battle_of_Kherson&action=history>
+- During the creation of this quiz I followed along with a course on creating quiz apps taught by  James Q Quick on YouTube. His channel can be found here: <https://www.youtube.com/@JamesQQuick> and the series of videos entitled 'build a quiz app' can be found here: <https://www.youtube.com/playlist?list=PLDlWc9AfQBfZIkdVaOQXi1tizJeNJipEx>
+-- I was then able to customize this code to choose my own questions, colors, and styling.
 
 ## License
 
