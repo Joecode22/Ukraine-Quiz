@@ -89,7 +89,14 @@ getNewQuestion = () => {
 
   availableQuestions.splice(questionIndex, 1); //remove the question from the available questions array
   acceptingAnswers = true; //set accepting answers to true
-}
+};
+
+choices.forEach(choice => {
+  choice.addEventListener('click', e => {
+    console.log(e.target); //log the target of the click event
+  });
+});
+
 
 startGame();
 
