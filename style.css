@@ -2,6 +2,7 @@
 :root {
     --bg-color: #CDCCCA; /* cloud */
     --main-text-color: #2D3118; /* Black Olive */
+    --transparent-text-color: rgba(45, 49, 24, 0.5); /* Black Olive with 50% opacity */
     --secondary-text-color: #827826; /* Crete */
     --accent-color: #544D2b; /* Woodland */
     font-size: 62.5%; /* now 1rem is 10px for easy math later */ 
@@ -51,4 +52,59 @@ h3 {
     max-width: 80rem; /* 80rem = 1280px */
     margin: 0 auto; /* center horizontally */
 }
+/* any child of the .container class will be 100% of the width of the container */
+/* this ensures that the content remains centered */ 
+container > * {
+    width: 100%; /* 100% of the container */
+}
 
+.flex-column {
+    display: flex; /* flexbox */
+    flex-direction: column; /* column */
+}
+
+.flex-center {
+    justify-content: center; /* center horizontally */
+    align-items: center; /* center vertically */
+}
+
+.justify-center {
+    justify-content: center; /* center horizontally */
+}
+
+.text-center {
+    text-align: center; /* center text */
+}
+
+.hidden {
+    display: none; /* hide the element */
+}
+
+/* style the buttons */
+.btn {
+    font-size: 1.8rem; /* 18px */
+    padding: 1rem 0; /* 10px top and bottom, 0 left and right */
+    width: 20rem; /* 200px */
+    text-align: center; /* center text */
+    border: 0.1rem solid var(--main-text-color); /* 1px solid Black Olive */
+    margin-bottom: 1rem; /* 10px */
+    text-decoration: none; /* remove underline */
+    color: var(--main-text-color); /* Black Olive */
+    background-color: white;    /* white */
+    border-radius: 2rem; /* rounds the corners */
+}
+
+/* add hover effects */
+.btn:hover {
+    cursor: pointer; /* change cursor to pointer */
+    box-shadow: 0 0.4rem 1.4rem 0 var(--transparent-text-color); /* 0 4px 14px 0 Black Olive with 50% opacity */
+    transform: translateY(-0.2rem); /* move up 2px */
+    transition: transform 150ms; /* transition for 150ms */
+}
+
+/* add disabled button styles for later */
+btn[disabled] {
+    cursor: not-allowed; /* change cursor to not-allowed */
+    box-shadow: none;
+    transform: none;
+}
