@@ -16,8 +16,21 @@
   background-color: white; /* white */
 }
 
+.choice-container:hover {
+  cursor: pointer; /* change cursor to pointer */
+  box-shadow: 0 0.4rem 1.4rem 0 var(--transparent-text-color); /* 0 4px 14px 0 Black Olive with 50% opacity */
+  transform: translateY(-0.2rem); /* move up 2px */
+  transition: transform 150ms; /* transition for 150ms */
+}
+
 .choice-prefix {
   padding: 1.5rem 2.5rem; /* 15px 25px */
   background-color: var(--secondary-text-color); /* Crete */
   color: white; /* white */
+}
+
+.choice-text {
+  padding: 1.5rem 2.5rem; /* 15px 25px */
+  color: var(--main-text-color); /* Black Olive */
+  background-color: white;
 }
