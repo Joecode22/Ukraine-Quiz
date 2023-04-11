@@ -76,7 +76,7 @@ let questions = [
 const CORRECT_BONUS = 10; //points for correct answer
 const MAX_QUESTIONS = 3; //number of questions
 
-startGame = () => {
+function startGame() {
   questionCounter = 0; //reset question counter
   score = 0; //reset score
   availableQuestions = [...questions]; //spread operator to copy the questions array
@@ -84,7 +84,7 @@ startGame = () => {
 }
 
 //function to get a new question
-getNewQuestion = () => {
+function getNewQuestion(){
   questionCounter++; //increment the question counter
   const questionIndex = Math.floor(Math.random() * availableQuestions.length); //generate a random question index
   currentQuestion = availableQuestions[questionIndex]; //set the current question to the random question
