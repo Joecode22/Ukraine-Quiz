@@ -2,10 +2,10 @@ const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const questionCounterText = document.getElementById('questionCounter');
 const scoreText = document.getElementById('score');
+const timerText = document.getElementById('timer');
 
 
-const TIMER_DURATION = 15;
-let timeLeft = TIMER_DURATION;
+
 
 
 let currentQuestion = {}; //object to hold the current question
@@ -67,20 +67,22 @@ let questions = [
 ];
 
 //constants
-const CORRECT_BONUS = 20; //points for correct answer
-const MAX_QUESTIONS = 5; //number of questions
+const CORRECT_BONUS = 20;
+const MAX_QUESTIONS = 5;
+let TIMER_DURATION = 75;
 //function to start the game
 function startGame() {
-  questionCounter = 0; //reset question counter
-  score = 0; //reset score
-  availableQuestions = [...questions]; //spread operator to copy the questions array
-  getNewQuestion(); //call the function to get a new question
+  questionCounter = 0;
+  score = 0;
+  availableQuestions = [...questions];
+  startTimer();
+  getNewQuestion();
 }
 
 //function to get a new question
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-    return window.location.assign("/end.html");
+    return window.location.assign("/highScores.html");
   }
 
   questionCounter++; 
@@ -94,8 +96,7 @@ function getNewQuestion() {
     const number = choice.dataset["number"]; 
     choice.innerText = currentQuestion["choice" + number]; 
   });
-  availableQuestions.splice(questionIndex, 1);
-  startTimer(); 
+  availableQuestions.splice(questionIndex, 1); 
 }
 
 //Choice Click Event Handler
@@ -110,6 +111,8 @@ choices.forEach((choice) => {
 
     if (classToApply === "correct") {
       incrementScore(CORRECT_BONUS);
+    } else {
+      TIMER_DURATION -= 10;
     }
 
     selectedChoice.classList.add(classToApply);
@@ -128,31 +131,17 @@ incrementScore = (num) => {
   scoreText.innerText = score;
 };
 
-//Timer Display Function
-function updateTimeDisplay() {
-  const timeDisplay = document.getElementById("time");
-  const minutes = Math.floor(timeRemaining / 60);
-  const seconds = timeRemaining % 60;
-  timeDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
-}
-
 //Timer Function
 function startTimer() {
-  updateTimeDisplay();
-
-  const timer = setInterval(() => {
-    timeRemaining--;
-
-    updateTimeDisplay();
-
-    if (timeRemaining <= 0) {
-      clearInterval(timer);
-      timeRemaining = TIMER_DURATION;
-      getNewQuestion();
+  // clearInterval(timerInterval);
+  setInterval(function () {
+    if (TIMER_DURATION >=0) {
+      timerText.innerHTML = TIMER_DURATION--;
+      console.log(TIMER_DURATION);
+    } else {
+      return window.location.assign("/highScores.html");
     }
-  }, 1000);
+  }, 250);
 }
-
-
 
 startGame();

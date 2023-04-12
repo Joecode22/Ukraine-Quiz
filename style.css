@@ -109,3 +109,8 @@ btn[disabled] {
     box-shadow: none;
     transform: none;
 }
+
+h1 ~ p{
+    font-size: 2rem;
+    padding-bottom: 5%;
+}
