@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/game.css">
   <title>HighScores</title>
 </head>
 <body>
@@ -20,7 +21,8 @@
             type="submit" 
             class="btn"
             id="save-score-btn"
-            onclick="saveHighScore(event)">
+            onclick="saveHighScore(event)"
+            disabled = 'disabled'>
             Save High Score
           </button>
       </form>
@@ -29,6 +31,6 @@
     </div> 
   </div>
   </div>
-  <script src="highScores.js"></script>
+  <script src="assets/js/highScores.js"></script>
 </body>
 </html>

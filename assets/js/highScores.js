@@ -1,9 +1,16 @@
+//highScores.js
+
 const username = document.getElementById('username');
 const saveScoreBtn = document.getElementById('save-score-btn');
-username.addEventListener('keyup', () => {
+username.addEventListener('input', function() {
   console.log(username.value);
-  saveScoreBtn.disabled = username.value === '';
-})
+  if (username.value === '') {
+    saveScoreBtn.setAttribute('disabled', 'disabled');
+  } else {
+    saveScoreBtn.removeAttribute('disabled');
+  }
+});
+
 
 saveHighScore = function (e) {
 console.log('logthis');
