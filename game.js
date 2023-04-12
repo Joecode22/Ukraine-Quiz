@@ -1,5 +1,11 @@
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
+const questionCounterText = document.getElementById('questionCounter');
+const scoreText = document.getElementById('score');
+
+
+const TIMER_DURATION = 15;
+let timeLeft = TIMER_DURATION;
 
 
 let currentQuestion = {}; //object to hold the current question
@@ -61,7 +67,7 @@ let questions = [
 ];
 
 //constants
-const CORRECT_BONUS = 10; //points for correct answer
+const CORRECT_BONUS = 20; //points for correct answer
 const MAX_QUESTIONS = 5; //number of questions
 //function to start the game
 function startGame() {
@@ -78,6 +84,7 @@ function getNewQuestion() {
   }
 
   questionCounter++; 
+  questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
   const questionIndex = Math.floor(Math.random() * availableQuestions.length); 
   currentQuestion = availableQuestions[questionIndex]; 
   question.innerText = currentQuestion.question; 
@@ -87,9 +94,11 @@ function getNewQuestion() {
     const number = choice.dataset["number"]; 
     choice.innerText = currentQuestion["choice" + number]; 
   });
-  availableQuestions.splice(questionIndex, 1); 
+  availableQuestions.splice(questionIndex, 1);
+  startTimer(); 
 }
 
+//Choice Click Event Handler
 choices.forEach((choice) => {
   choice.addEventListener("click", (e) => {
     if (!acceptingAnswers) return;
@@ -100,7 +109,7 @@ choices.forEach((choice) => {
       selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
     if (classToApply === "correct") {
-      score += CORRECT_BONUS;
+      incrementScore(CORRECT_BONUS);
     }
 
     selectedChoice.classList.add(classToApply);
@@ -112,5 +121,38 @@ choices.forEach((choice) => {
     }, 1000);
   });
 });
+
+//Score Increment Function
+incrementScore = (num) => {
+  score += num;
+  scoreText.innerText = score;
+};
+
+//Timer Display Function
+function updateTimeDisplay() {
+  const timeDisplay = document.getElementById("time");
+  const minutes = Math.floor(timeRemaining / 60);
+  const seconds = timeRemaining % 60;
+  timeDisplay.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+}
+
+//Timer Function
+function startTimer() {
+  updateTimeDisplay();
+
+  const timer = setInterval(() => {
+    timeRemaining--;
+
+    updateTimeDisplay();
+
+    if (timeRemaining <= 0) {
+      clearInterval(timer);
+      timeRemaining = TIMER_DURATION;
+      getNewQuestion();
+    }
+  }, 1000);
+}
+
+
 
 startGame();
