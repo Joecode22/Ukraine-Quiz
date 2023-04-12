@@ -31,22 +31,12 @@ let questions = [
 
   {
     question:
-      "What language was primarily spoken by the Ukrainian Defenders during the battle of Mykolaiv?",
-    choice1: "Russian",
-    choice2: "Ukrainian",
-    choice3: "English",
-    choice4: "German",
-    answer: 1,
-  },
-
-  {
-    question:
       "Which southern Ukrainian city was captured by Russian forces on March 2, 2022?",
     choice1: "Kherson",
     choice2: "Mykolaiv",
     choice3: "Kiev",
     choice4: "Odessa",
-    answer: 2,
+    answer: 1,
   },
 
   {
@@ -59,14 +49,6 @@ let questions = [
     answer: 3,
   },
 
-  {
-    question: "Where will Putin be tried for war crimes?",
-    choice1: "The Hague",
-    choice2: "Moscow",
-    choice3: "New York",
-    choice4: "London",
-    answer: 1,
-  },
   {
     question:
       "What is the name of the nuclear power plant that was captured by Russian forces on March 4, 2022?",

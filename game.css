@@ -8,9 +8,9 @@
 }
 
 .choice-container {
-  display: flex; /* flexbox */
+  display: flex;
   margin-bottom: 0.5rem; /* 5px */
-  width: 100%; /* 100% of the container */
+  width: 100%;
   font-size: 1.8rem; /* 18px */
   border: 0.1rem solid var(--transparent-accent-color); /* 1px solid Woodland with 50% opacity */
   /* background-color: white; */
@@ -33,7 +33,7 @@
   padding: 1.5rem 2.5rem; /* 15px 25px */
   /* color: var(--main-text-color); Black Olive */
   background-color: white;
-  width: 100%; /* 100% of the container */
+  width: 100%;
 }
 
 .correct {
@@ -42,4 +42,22 @@
 
 .incorrect {
   background-color: red;
+}
+
+/* HUD */
+
+#hud {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.hud-prefix {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.hud-main-text {
+  text-align: center;
+  font-size: 2.5rem;
 }
