@@ -181,8 +181,10 @@ input:focus {
     border: solid 2px var(--accent-color);
 }
 
-btn[disabled] {
+.btn.disabled {
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
-}
+    opacity: 0.5; /* Optional: reduce the opacity to make it look visually disabled */
+  }
+  
