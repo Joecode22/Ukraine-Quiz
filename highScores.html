@@ -4,16 +4,31 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="game.css">
-  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <title>HighScores</title>
 </head>
 <body>
   <div class="container">
-    <div class="id highScore">
-      Hello
-    </div>
-    <h1>Thanks for Playing!</h1>
-    <p id="high-score">High Score:</p>
+    <div id="highScore" class="flex-center flex-column">
+      <h1 id="final-score">Thanks for Playing!</h1>
+      <form>
+        <input type="text" 
+          name="username" 
+          id="username"
+          placeholder="Enter your Initials">
+          <button 
+            type="submit" 
+            class="btn"
+            id="save-score-btn"
+            onclick="saveHighScore(event)">
+            Save High Score
+          </button>
+      </form>
+      <a class="btn" href="/index.html">Play Again</a>
+      <a class="btn" href="/index.html">Home Page</a>
+    </div> 
   </div>
+  </div>
+  <script src="highScores.js"></script>
 </body>
 </html>

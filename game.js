@@ -1,12 +1,9 @@
+// grab the elements from the DOM
 const question = document.getElementById("question");
 const choices = Array.from(document.getElementsByClassName("choice-text"));
 const questionCounterText = document.getElementById('questionCounter');
 const scoreText = document.getElementById('score');
 const timerText = document.getElementById('timer');
-
-
-
-
 
 let currentQuestion = {}; //object to hold the current question
 let acceptingAnswers = true; //boolean to check if we are accepting answers
@@ -70,6 +67,7 @@ let questions = [
 const CORRECT_BONUS = 20;
 const MAX_QUESTIONS = 5;
 let TIMER_DURATION = 75;
+
 //function to start the game
 function startGame() {
   questionCounter = 0;
@@ -133,7 +131,6 @@ incrementScore = (num) => {
 
 //Timer Function
 function startTimer() {
-  // clearInterval(timerInterval);
   setInterval(function () {
     if (TIMER_DURATION >=0) {
       timerText.innerHTML = TIMER_DURATION--;
