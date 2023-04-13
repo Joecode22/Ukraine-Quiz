@@ -81,8 +81,9 @@ function startGame() {
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
     //add the score to the local storage
-    localStorage.setItem("mostRecentScore", score);
+    // localStorage.setItem("mostRecentScore", score);
     //go to the high scores page
+    localStorage.setItem("mostRecentScore", score);
     return window.location.assign("high-scores.html");
   }
 
@@ -115,15 +116,16 @@ choices.forEach((choice) => {
     } else {
       TIMER_DURATION -= 10;
     }
-
+    
     selectedChoice.classList.add(classToApply);
-
+    
     setTimeout(() => {
       selectedChoice.classList.remove(classToApply);
       acceptingAnswers = true;
       getNewQuestion();
     }, 1000);
   });
+  // localStorage.setItem("mostRecentScore", score);
 });
 
 //Score Increment Function

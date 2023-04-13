@@ -10,10 +10,14 @@ let scoreSaved = false;
 
 
 
-if (highScores.length === 0) {
-  finalScore.innerText = 'No Scores Yet';
-} else {
-  finalScore.innerText = 'Most Recent Score: ' + mostRecentScore;
+function checkForScore() {
+  console.log('This is the most recent score: ' + mostRecentScore)
+  finalScore.innerText = '';
+  if (!mostRecentScore) {
+    finalScore.innerText = 'No Scores Yet';
+  } else {
+    finalScore.innerText = 'Most Recent Score: ' + mostRecentScore;
+  }
 }
 
 
@@ -46,6 +50,8 @@ function populateHighScoresTable(highScores) {
   });
 }
 
+// check for a score
+checkForScore();
 // Populate the table initially
 populateHighScoresTable(highScores);
 
