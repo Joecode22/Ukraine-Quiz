@@ -80,6 +80,9 @@ function startGame() {
 //function to get a new question
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
+    //add the score to the local storage
+    localStorage.setItem("mostRecentScore", score);
+    //go to the high scores page
     return window.location.assign("/highScores.html");
   }
 
@@ -138,7 +141,7 @@ function startTimer() {
     } else {
       return window.location.assign("/highScores.html");
     }
-  }, 250);
+  }, 1000);
 }
 
 startGame();
