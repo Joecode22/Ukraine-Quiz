@@ -138,6 +138,7 @@ function startTimer() {
     if (TIMER_DURATION >=0) {
       timerText.innerHTML = TIMER_DURATION--;
     } else {
+      localStorage.setItem("mostRecentScore", score);
       return window.location.assign("high-scores.html");
     }
   }, 1000);
