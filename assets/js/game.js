@@ -83,7 +83,7 @@ function getNewQuestion() {
     //add the score to the local storage
     localStorage.setItem("mostRecentScore", score);
     //go to the high scores page
-    return window.location.assign("/highScores.html");
+    return window.location.assign("highScores.html");
   }
 
   questionCounter++; 
