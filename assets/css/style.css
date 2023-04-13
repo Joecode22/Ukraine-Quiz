@@ -188,3 +188,57 @@ input:focus {
     opacity: 0.5; /* Optional: reduce the opacity to make it look visually disabled */
   }
   
+  /* General table styles */
+table {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+  }
+  
+  /* Table header styles */
+  thead {
+    background-color: #3f87a6;
+    color: #fff;
+  }
+  
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Table body row styles */
+  tbody tr:nth-child(even) {
+    background-color: #f3f3f3;
+  }
+  
+  tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Add a shadow effect to the table */
+#highScoresTable {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.25);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  /* Change the cursor and add a shadow effect on hover */
+  #highScoresTable:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.35);
+  }
+  
+  /* Change the background color of a table row on hover */
+  #highScoresTable tbody tr:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  /* Center the text in table cells */
+#highScoresTable th,
+#highScoresTable td {
+  text-align: center;
+}
+
+  
