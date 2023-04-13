@@ -33,7 +33,7 @@ h1,
 h2,
 h3,
 h4 {
-    font-size: 5.4rem;
+    font-size: 5rem;
     /* 54px */
     color: var(--main-text-color);
     /* teal */
@@ -51,7 +51,7 @@ h1>span {
 
 /* style the h2 */
 h2 {
-    font-size: 4.2rem;
+    font-size: 2rem;
     /* 42px */
     margin-bottom: 4rem;
     /* 40px */
