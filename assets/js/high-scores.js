@@ -13,9 +13,12 @@ let scoreSaved = false;
 function checkForScore() {
   console.log('This is the most recent score: ' + mostRecentScore)
   finalScore.innerText = '';
+  console.log('test1')
   if (!mostRecentScore) {
+    console.log('test2')
     finalScore.innerText = 'No Scores Yet';
   } else {
+    console.log('test3')
     finalScore.innerText = 'Most Recent Score: ' + mostRecentScore;
   }
 }
