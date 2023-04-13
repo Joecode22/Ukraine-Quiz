@@ -2,7 +2,6 @@ const highScoresTable = document.getElementById('highScoresTable').querySelector
 const username = document.getElementById('username');
 const saveScoreBtn = document.getElementById('save-score-btn');
 const mostRecentScore = localStorage.getItem('mostRecentScore');
-console.log(mostRecentScore)
 const finalScore = document.getElementById('final-score');
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 MAX_HIGH_SCORES = 5;
@@ -11,21 +10,16 @@ let scoreSaved = false;
 
 
 function checkForScore() {
-  console.log('This is the most recent score: ' + mostRecentScore)
   finalScore.innerText = '';
-  console.log('test1')
   if (!mostRecentScore) {
-    console.log('test2')
     finalScore.innerText = 'No Scores Yet';
   } else {
-    console.log('test3')
     finalScore.innerText = 'Most Recent Score: ' + mostRecentScore;
   }
 }
 
 
 username.addEventListener('keyup', function () {
-  console.log(username.value);
   if (!scoreSaved) {
     saveScoreBtn.disabled = !username.value;
   }
@@ -60,27 +54,25 @@ populateHighScoresTable(highScores);
 
 saveHighScore = function (e) {
   e.preventDefault();
-  console.log('clicked the save button');
   const newScore = {
     score: mostRecentScore,
     name: username.value
   }
 
   if (newScore.score === null) {
-    console.log('its null!');
     return;
   }
 
 
 
   //logic to manage top 5 scores
-    highScores.push(newScore);
-    highScores.sort((a, b) => b.score - a.score);
-    highScores.splice(MAX_HIGH_SCORES);
-    localStorage.setItem('highScores', JSON.stringify(highScores));
-    populateHighScoresTable(highScores);
-    scoreSaved = true;
-    saveScoreBtn.disabled = true;
+  highScores.push(newScore);
+  highScores.sort((a, b) => b.score - a.score);
+  highScores.splice(MAX_HIGH_SCORES);
+  localStorage.setItem('highScores', JSON.stringify(highScores));
+  populateHighScoresTable(highScores);
+  scoreSaved = true;
+  saveScoreBtn.disabled = true;
 
 };
 
