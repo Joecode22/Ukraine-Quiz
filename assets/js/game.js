@@ -83,7 +83,7 @@ function getNewQuestion() {
     //add the score to the local storage
     localStorage.setItem("mostRecentScore", score);
     //go to the high scores page
-    return window.location.assign("highScores.html");
+    return window.location.assign("high-scores.html");
   }
 
   questionCounter++; 
@@ -138,7 +138,7 @@ function startTimer() {
     if (TIMER_DURATION >=0) {
       timerText.innerHTML = TIMER_DURATION--;
     } else {
-      return window.location.assign("highScores.html");
+      return window.location.assign("high-scores.html");
     }
   }, 1000);
 }
