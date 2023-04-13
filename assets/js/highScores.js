@@ -2,20 +2,25 @@ const highScoresTable = document.getElementById('highScoresTable').querySelector
 const username = document.getElementById('username');
 const saveScoreBtn = document.getElementById('save-score-btn');
 const mostRecentScore = localStorage.getItem('mostRecentScore');
+console.log(mostRecentScore)
 const finalScore = document.getElementById('final-score');
-
-let highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-
+const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 MAX_HIGH_SCORES = 5;
+let scoreSaved = false;
 
-finalScore.innerText = 'Most Recent Score: ' + mostRecentScore;
+
+
+if (highScores.length === 0) {
+  finalScore.innerText = 'No Scores Yet';
+} else {
+  finalScore.innerText = 'Most Recent Score: ' + mostRecentScore;
+}
+
+
 username.addEventListener('keyup', function () {
-  if (username.value === '') {
-    saveScoreBtn.classList.add('disabled');
-    saveScoreBtn.setAttribute('disabled', 'disabled');
-  } else {
-    saveScoreBtn.classList.remove('disabled');
-    saveScoreBtn.removeAttribute('disabled');
+  console.log(username.value);
+  if (!scoreSaved) {
+    saveScoreBtn.disabled = !username.value;
   }
 });
 
@@ -46,19 +51,27 @@ populateHighScoresTable(highScores);
 
 saveHighScore = function (e) {
   e.preventDefault();
-
-  const score = {
+  console.log('clicked the save button');
+  const newScore = {
     score: mostRecentScore,
     name: username.value
-  };
+  }
+
+  if (newScore.score === null) {
+    console.log('its null!');
+    return;
+  }
+
+
 
   //logic to manage top 5 scores
-  highScores.push(score);
-  highScores.sort((a, b) => b.score - a.score);
-  highScores.splice(MAX_HIGH_SCORES);
+    highScores.push(newScore);
+    highScores.sort((a, b) => b.score - a.score);
+    highScores.splice(MAX_HIGH_SCORES);
+    localStorage.setItem('highScores', JSON.stringify(highScores));
+    populateHighScoresTable(highScores);
+    scoreSaved = true;
+    saveScoreBtn.disabled = true;
 
-  localStorage.setItem('highScores', JSON.stringify(highScores));
-
-  // Update the high scores table
-  populateHighScoresTable(highScores);
 };
+

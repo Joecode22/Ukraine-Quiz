@@ -66,7 +66,7 @@ let questions = [
 //constants
 const CORRECT_BONUS = 20;
 const MAX_QUESTIONS = 5;
-let TIMER_DURATION = 75;
+let TIMER_DURATION = 50;
 
 //function to start the game
 function startGame() {
@@ -137,7 +137,6 @@ function startTimer() {
   setInterval(function () {
     if (TIMER_DURATION >=0) {
       timerText.innerHTML = TIMER_DURATION--;
-      console.log(TIMER_DURATION);
     } else {
       return window.location.assign("/highScores.html");
     }
