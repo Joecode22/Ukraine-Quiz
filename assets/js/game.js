@@ -1,18 +1,19 @@
-// grab the elements from the DOM
-const question = document.getElementById("question");
-const choices = Array.from(document.getElementsByClassName("choice-text"));
-const questionCounterText = document.getElementById('questionCounter');
-const scoreText = document.getElementById('score');
-const timerText = document.getElementById('timer');
+// Grab the elements from the DOM
+var question = document.getElementById("question");
+var choices = Array.from(document.getElementsByClassName("choice-text"));
+var questionCounterText = document.getElementById('questionCounter');
+var scoreText = document.getElementById('score');
+var timerText = document.getElementById('timer');
 
-let currentQuestion = {}; //object to hold the current question
-let acceptingAnswers = true; //boolean to check if we are accepting answers
-let score = 0; //initialize the score to zero
-let questionCounter = 0; //initialize the question counter to zero
-let availableQuestions = []; //initialize the available questions array
+// Initialize the necessary variables
+var currentQuestion = {}; // Object to hold the current question
+var acceptingAnswers = true; // Boolean to check if we are accepting answers
+var score = 0; // Initialize the score to zero
+var questionCounter = 0; // Initialize the question counter to zero
+var availableQuestions = []; // Initialize the available questions array
 
-//questions array
-let questions = [
+// Questions array
+var questions = [
   {
     question: "When did the most recent full scale invasion of Ukraine start?",
     choice1: "July 31, 2022",
@@ -63,81 +64,76 @@ let questions = [
   },
 ];
 
-//constants
-const CORRECT_BONUS = 20;
-const MAX_QUESTIONS = 5;
-let TIMER_DURATION = 50;
+// Constants
+var CORRECT_BONUS = 20;
+var MAX_QUESTIONS = 5;
+var TIMER_DURATION = 60;
 
-//function to start the game
+// Function to start the game
 function startGame() {
   questionCounter = 0;
   score = 0;
-  availableQuestions = [...questions];
+  availableQuestions = questions.slice(); // Create a copy of the questions array
   startTimer();
   getNewQuestion();
 }
 
-//function to get a new question
+// Function to get a new question
 function getNewQuestion() {
   if (availableQuestions.length === 0 || questionCounter >= MAX_QUESTIONS) {
-    //add the score to the local storage
-    // localStorage.setItem("mostRecentScore", score);
-    //go to the high scores page
     localStorage.setItem("mostRecentScore", score);
     return window.location.assign("high-scores.html");
   }
 
-  questionCounter++; 
-  questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
-  const questionIndex = Math.floor(Math.random() * availableQuestions.length); 
-  currentQuestion = availableQuestions[questionIndex]; 
-  question.innerText = currentQuestion.question; 
+  questionCounter++; // Increment the question counter
+  questionCounterText.innerText = questionCounter + '/' + MAX_QUESTIONS;
+  var questionIndex = Math.floor(Math.random() * availableQuestions.length);
+  currentQuestion = availableQuestions[questionIndex];
+  question.innerText = currentQuestion.question;
 
-  //loop through the choices
-  choices.forEach((choice) => {
-    const number = choice.dataset["number"]; 
-    choice.innerText = currentQuestion["choice" + number]; 
+  choices.forEach(function(choice) {
+    var number = choice.dataset["number"];
+    choice.innerText = currentQuestion["choice" + number];
   });
-  availableQuestions.splice(questionIndex, 1); 
+
+  availableQuestions.splice(questionIndex, 1);
 }
 
-//Choice Click Event Handler
-choices.forEach((choice) => {
-  choice.addEventListener("click", (e) => {
+// Add a click event listener for each choice
+choices.forEach(function(choice) {
+  choice.onclick = function(e) {
     if (!acceptingAnswers) return;
     acceptingAnswers = false;
-    const selectedChoice = e.target;
-    const selectedAnswer = selectedChoice.dataset["number"];
-    const classToApply =
-      selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
+    var selectedChoice = e.target;
+    var selectedAnswer = selectedChoice.dataset["number"];
+    var classToApply = selectedAnswer == currentQuestion.answer ? "correct" : "incorrect";
 
     if (classToApply === "correct") {
       incrementScore(CORRECT_BONUS);
     } else {
       TIMER_DURATION -= 10;
     }
-    
+
     selectedChoice.classList.add(classToApply);
-    
-    setTimeout(() => {
+
+    setTimeout(function() {
       selectedChoice.classList.remove(classToApply);
       acceptingAnswers = true;
       getNewQuestion();
     }, 1000);
-  });
-  // localStorage.setItem("mostRecentScore", score);
+  };
 });
 
-//Score Increment Function
-incrementScore = (num) => {
+// Function to increment the score
+function incrementScore(num) {
   score += num;
   scoreText.innerText = score;
-};
+}
 
-//Timer Function
+// Function to start the timer
 function startTimer() {
-  setInterval(function () {
-    if (TIMER_DURATION >=0) {
+  setInterval(function() {
+    if (TIMER_DURATION >= 0) {
       timerText.innerHTML = TIMER_DURATION--;
     } else {
       localStorage.setItem("mostRecentScore", score);
