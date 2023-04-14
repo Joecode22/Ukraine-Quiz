@@ -7,7 +7,7 @@ The goal of this project is to create a quiz
 ## Appearance
 
 Below is a short video of the appearance and functionality of this application:
-![Code-Quiz Application Behavior](https://github.com/Joecode22/Code-Quiz/blob/main/app.gif "Password Generator Application Behavior")
+![Ukraine-Quiz Application Behavior](https://github.com/Joecode22/Code-Quiz/blob/main/assets/Ukraine-Quiz.gif "Password Generator Application Behavior")
 
 ## User Story
 
