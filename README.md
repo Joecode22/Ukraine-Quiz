@@ -36,7 +36,7 @@ There is no installation requirement
 ## Usage
 
 This project is deployed on github pages.
-Follow this link to view: <https://joecode22.github.io/Code-Quiz/>
+Follow this link to view: <https://joecode22.github.io/Ukraine-Quiz/>
 
 ## Credits
 
