@@ -6,8 +6,10 @@ The goal of this project is to create a quiz
 
 ## Appearance
 
+<p align="center">
 Below is a short video of the appearance and functionality of this application:
 ![Ukraine-Quiz Application Behavior](https://github.com/Joecode22/Code-Quiz/blob/main/assets/Ukraine-Quiz.gif "Password Generator Application Behavior")
+</p>
 
 ## User Story
 
